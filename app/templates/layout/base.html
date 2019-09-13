@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Python Exercise!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">{% trans "Python Exercise" %}</a>
+
+        </div>
+<!--  Here is the language change code -->
+        <form action="/rebiton/asdf/" method="POST" style="float:right;">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path }}"/>
+                <select name="language" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected="selected" {% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                    {% endfor %}
+                </select>
+<!--                <input type="submit" value="Change"/>-->
+            </form>
+        <!--  Here is the language change code -->
+
+    </div>
+</nav>
+<div class="container">
+    <!--This will be a dynamic block-->
+    {% block content %}
+    {% endblock %}
+</div>
+<!--<footer style="text-align: center">-->
+<!--    &copy; 2019 Localhost-->
+<!--</footer>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

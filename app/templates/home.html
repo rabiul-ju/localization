@@ -1,0 +1,22 @@
+{% extends "layout/base.html" %}
+{% load i18n %}
+{% block content %}
+<div id="homepage" style="margin-top: 50px;"
+     class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title" style="align:right;">
+                <a href="/app/logout/">{% trans "Logout" %}</a>
+            </div>
+
+
+        </div>
+        <div style="padding-top: 30px" class="panel-body">
+
+        <h3>{% trans "Hello" %} {{user.email}}, </h3> <h4><p>{% trans "Welcome to app home page" %}</p></h4>
+            <h4><p>{% trans "And your ID Number is :" %} {{user.id}}</p></h4>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
