@@ -15,7 +15,7 @@
 
         </div>
 <!--  Here is the language change code -->
-        <form action="/rebiton/asdf/" method="POST" style="float:right;">
+        <form action="/app/locale/" method="POST" style="float:right;">
                 {% csrf_token %}
                 <input name="next" type="hidden" value="{{ request.get_full_path }}"/>
                 <select name="language" onchange="this.form.submit()">

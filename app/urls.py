@@ -7,5 +7,5 @@ urlpatterns = [
     url('registration', views.registration, name='registration'),
     url('home', views.home, name='home'),
     url('logout', views.logout, name='logout'),
-    url('asdf', views.change_language, name="change_language")
+    url('locale', views.change_language, name="change_language")
 ]
